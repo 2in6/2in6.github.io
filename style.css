@@ -1,0 +1,195 @@
+/* --- CSS Variables (Your Theme) --- */
+:root {
+    --bg-gradient: linear-gradient(135deg, #e0f2f1, #b2dfdb);
+    --primary-mint: #66cdaa; /* A medium mint for buttons */
+    --primary-mint-dark: #55b99a; /* For hover */
+    --text-color: #333;
+    --frosted-bg: rgba(255, 255, 255, 0.6);
+    --frosted-border: rgba(255, 255, 255, 0.8);
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Global Styles --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg-gradient);
+    background-attachment: fixed; /* Keeps gradient in place */
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 7rem 2rem 2rem; /* Top padding to avoid navbar */
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--primary-mint-dark);
+}
+
+p {
+    font-size: 1.1rem;
+    max-width: 60ch; /* Limits line length for readability */
+}
+
+/* --- Frosted Glass Effect --- */
+.frosted-glass {
+    background: var(--frosted-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* For Safari */
+    border-radius: 15px;
+    border: 1px solid var(--frosted-border);
+    box-shadow: var(--shadow);
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2.5rem;
+    z-index: 100;
+    
+    /* Navbar frosted glass effect */
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.navbar nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.navbar nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar nav a:hover {
+    color: var(--primary-mint);
+}
+
+/* --- Section Specific Styles --- */
+.content-box {
+    padding: 2.5rem 3rem;
+    max-width: 800px;
+    text-align: center;
+}
+
+/* --- Projects Section --- */
+#projects {
+    max-width: 1200px;
+    margin: 0 auto; /* Center the grid container */
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
+}
+
+.project-card {
+    overflow: hidden; /* Ensures image corners are rounded */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Prevents image distortion */
+    display: block;
+}
+
+.project-card h3, .project-card p {
+    padding: 0 1.5rem;
+    margin-top: 1rem;
+}
+
+.project-card p {
+    font-size: 1rem;
+    padding-bottom: 1.5rem;
+}
+
+/* --- Contact Section --- */
+.contact-button {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.8rem 2rem;
+    background: var(--primary-mint);
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px; /* Pill shape */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-button:hover {
+    background: var(--primary-mint-dark);
+    transform: scale(1.05);
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+    color: #555;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+/* --- Scroll-in Animation --- */
+.fade-in {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, filter 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
