@@ -1,12 +1,12 @@
-/* --- CSS Variables (Your Theme) --- */
+/* --- CSS Variables (Your Dark Green Theme) --- */
 :root {
-    --bg-gradient: linear-gradient(135deg, #e0f2f1, #b2dfdb);
-    --primary-mint: #66cdaa; /* A medium mint for buttons */
-    --primary-mint-dark: #55b99a; /* For hover */
-    --text-color: #333;
-    --frosted-bg: rgba(255, 255, 255, 0.6);
-    --frosted-border: rgba(255, 255, 255, 0.8);
-    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --bg-gradient: linear-gradient(135deg, #0a1917, #0d2a25); /* Dark green bg */
+    --primary-green: #00ffab; /* Bright accent green */
+    --primary-green-light: #33ffc2; /* Lighter hover */
+    --text-color: #e0e0e0; /* Light grey text */
+    --frosted-bg: rgba(15, 30, 25, 0.6); /* Dark frosted glass */
+    --frosted-border: rgba(255, 255, 255, 0.15); /* Light border */
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* --- Global Styles --- */
@@ -21,9 +21,11 @@ html {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    /* Poppins Font Added */
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-weight: 300;
     background: var(--bg-gradient);
-    background-attachment: fixed; /* Keeps gradient in place */
+    background-attachment: fixed;
     color: var(--text-color);
     line-height: 1.6;
 }
@@ -34,30 +36,32 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 7rem 2rem 2rem; /* Top padding to avoid navbar */
+    padding: 7rem 2rem 2rem;
 }
 
 h2 {
     font-size: 2.5rem;
+    font-weight: 600;
     margin-bottom: 2rem;
     text-align: center;
 }
 
 h3 {
     font-size: 1.5rem;
-    color: var(--primary-mint-dark);
+    font-weight: 600;
+    color: var(--primary-green); /* Use bright green for titles */
 }
 
 p {
     font-size: 1.1rem;
-    max-width: 60ch; /* Limits line length for readability */
+    max-width: 60ch;
 }
 
 /* --- Frosted Glass Effect --- */
 .frosted-glass {
     background: var(--frosted-bg);
     backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px); /* For Safari */
+    -webkit-backdrop-filter: blur(12px);
     border-radius: 15px;
     border: 1px solid var(--frosted-border);
     box-shadow: var(--shadow);
@@ -76,10 +80,10 @@ p {
     z-index: 100;
     
     /* Navbar frosted glass effect */
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(10, 25, 20, 0.7); /* Slightly different bg */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .nav-logo {
@@ -103,7 +107,7 @@ p {
 }
 
 .navbar nav a:hover {
-    color: var(--primary-mint);
+    color: var(--primary-green);
 }
 
 /* --- Section Specific Styles --- */
@@ -116,7 +120,7 @@ p {
 /* --- Projects Section --- */
 #projects {
     max-width: 1200px;
-    margin: 0 auto; /* Center the grid container */
+    margin: 0 auto;
 }
 
 .project-grid {
@@ -127,19 +131,19 @@ p {
 }
 
 .project-card {
-    overflow: hidden; /* Ensures image corners are rounded */
+    overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
 }
 
 .project-card img {
     width: 100%;
     height: 200px;
-    object-fit: cover; /* Prevents image distortion */
+    object-fit: cover;
     display: block;
 }
 
@@ -158,16 +162,16 @@ p {
     display: inline-block;
     margin-top: 1.5rem;
     padding: 0.8rem 2rem;
-    background: var(--primary-mint);
-    color: white;
+    background: var(--primary-green);
+    color: #0a1917; /* Dark text for high contrast on bright button */
     text-decoration: none;
     font-weight: bold;
-    border-radius: 50px; /* Pill shape */
+    border-radius: 50px;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .contact-button:hover {
-    background: var(--primary-mint-dark);
+    background: var(--primary-green-light);
     transform: scale(1.05);
 }
 
@@ -176,11 +180,11 @@ footer {
     text-align: center;
     padding: 1.5rem;
     font-size: 0.9rem;
-    color: #555;
-    background: rgba(255, 255, 255, 0.5);
+    color: #999; /* Light grey */
+    background: rgba(0, 0, 0, 0.2);
 }
 
-/* --- Scroll-in Animation --- */
+/* --- Scroll-in Animation (Same as before) --- */
 .fade-in {
     opacity: 0;
     filter: blur(5px);
