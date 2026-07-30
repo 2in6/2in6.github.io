@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2in6</title>
+<meta name="description" content="I&rsquo;ve been building Minecraft servers and plugins for around five years.">
+<meta name="theme-color" content="#b6f24a">
+<meta property="og:type" content="website">
+<meta property="og:title" content="2in6">
+<meta property="og:description" content="I&rsquo;ve been building Minecraft servers and plugins for around five years.">
+<meta property="og:url" content="https://2in6.github.io/">
+<meta property="og:image" content="https://2in6.github.io/icon.png">
+<link rel="icon" href="icon.png" type="image/png">
+<link rel="apple-touch-icon" href="icon.png">
+<link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<svg class="sprite" aria-hidden="true" focusable="false">
+  <symbol id="i-modrinth" viewBox="0 0 24 24"><path d="M12.252.004a11.78 11.768 0 0 0-8.92 3.73 11 10.999 0 0 0-2.17 3.11 11.37 11.359 0 0 0-1.16 5.169c0 1.42.17 2.5.6 3.77.24.759.77 1.899 1.17 2.529a12.3 12.298 0 0 0 8.85 5.639c.44.05 2.54.07 2.76.02.2-.04.22.1-.26-1.7l-.36-1.37-1.01-.06a8.5 8.489 0 0 1-5.18-1.8 5.34 5.34 0 0 1-1.3-1.26c0-.05.34-.28.74-.5a37.572 37.545 0 0 1 2.88-1.629c.03 0 .5.45 1.06.98l1 .97 2.07-.43 2.06-.43 1.47-1.47c.8-.8 1.48-1.5 1.48-1.52 0-.09-.42-1.63-.46-1.7-.04-.06-.2-.03-1.02.18-.53.13-1.2.3-1.45.4l-.48.15-.53.53-.53.53-.93.1-.93.07-.52-.5a2.7 2.7 0 0 1-.96-1.7l-.13-.6.43-.57c.68-.9.68-.9 1.46-1.1.4-.1.65-.2.83-.33.13-.099.65-.579 1.14-1.069l.9-.9-.7-.7-.7-.7-1.95.54c-1.07.3-1.96.53-1.97.53-.03 0-2.23 2.48-2.63 2.97l-.29.35.28 1.03c.16.56.3 1.16.31 1.34l.03.3-.34.23c-.37.23-2.22 1.3-2.84 1.63-.36.2-.37.2-.44.1-.08-.1-.23-.6-.32-1.03-.18-.86-.17-2.75.02-3.73a8.84 8.839 0 0 1 7.9-6.93c.43-.03.77-.08.78-.1.06-.17.5-2.999.47-3.039-.01-.02-.1-.02-.2-.03Zm3.68.67c-.2 0-.3.1-.37.38-.06.23-.46 2.42-.46 2.52 0 .04.1.11.22.16a8.51 8.499 0 0 1 2.99 2 8.38 8.379 0 0 1 2.16 3.449 6.9 6.9 0 0 1 .4 2.8c0 1.07 0 1.27-.1 1.73a9.37 9.369 0 0 1-1.76 3.769c-.32.4-.98 1.06-1.37 1.38-.38.32-1.54 1.1-1.7 1.14-.1.03-.1.06-.07.26.03.18.64 2.56.7 2.78l.06.06a12.07 12.058 0 0 0 7.27-9.4c.13-.77.13-2.58 0-3.4a11.96 11.948 0 0 0-5.73-8.578c-.7-.42-2.05-1.06-2.25-1.06Z"/></symbol>
+  <symbol id="i-discord" viewBox="0 0 24 24"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z"/></symbol>
+  <symbol id="i-youtube" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+</svg>
+
+<audio id="bg-audio" src="audio.mp3" loop preload="auto"></audio>
+
+<button id="audio-toggle" type="button" aria-pressed="false" aria-label="Play background music">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M12.2 4.4a.8.8 0 0 0-1.3-.6L6.6 7.6H3.8a1.3 1.3 0 0 0-1.3 1.3v6.2a1.3 1.3 0 0 0 1.3 1.3h2.8l4.3 3.8a.8.8 0 0 0 1.3-.6z"/>
+    <path class="wave w1" d="M15.4 9.6a3.6 3.6 0 0 1 0 4.8"/>
+    <path class="wave w2" d="M17.9 7.1a7.2 7.2 0 0 1 0 9.8"/>
+  </svg>
+</button>
+
+<main>
+
+  <header class="intro" style="--i:0">
+    <h1>Hi, I&rsquo;m 2in6 <span class="wave-emoji">&#128075;</span></h1>
+    <p>I&rsquo;ve been building Minecraft servers and plugins for around five years.</p>
+    <p>Most of what I make starts as a passion project. I want something to exist, nobody&rsquo;s built it the way I&rsquo;d want it, so I write it myself. Some of that ends up public. A lot of it just runs on servers I&rsquo;ve worked on.</p>
+    <p>Right now I&rsquo;m a manager on Fractured SMP, where I also do the plugin development.</p>
+  </header>
+
+  <section style="--i:1">
+    <h2 class="label">Work</h2>
+
+    <article class="project">
+      <div class="head">
+        <div class="name"><h3>Fighting Bots</h3></div>
+        <span class="meta">Plugin, in progress</span>
+      </div>
+      <p>Adds bots to your server that actually fight. They pick targets, aim, time their hits and react to knockback, so fighting one feels closer to fighting a player than fighting a mob.</p>
+      <p>Almost everything about how they fight is configurable.</p>
+      <p class="note">Not out yet. It&rsquo;ll go up on Modrinth when it&rsquo;s finished.</p>
+    </article>
+
+    <article class="project">
+      <div class="head">
+        <div class="name">
+          <h3>Spyglass</h3>
+          <a class="icon" href="https://modrinth.com/user/2in6" target="_blank" rel="noopener" aria-label="Spyglass on Modrinth">
+            <svg class="ico"><use href="#i-modrinth"/></svg>
+          </a>
+        </div>
+        <span class="meta">Plugin</span>
+      </div>
+      <p>Lets staff open a player&rsquo;s inventory and enderchest. It does that and nothing else, which was the point.</p>
+    </article>
+
+    <article class="project">
+      <div class="head">
+        <div class="name">
+          <h3>Death Kick</h3>
+          <a class="icon" href="https://modrinth.com/user/2in6" target="_blank" rel="noopener" aria-label="Death Kick on Modrinth">
+            <svg class="ico"><use href="#i-modrinth"/></svg>
+          </a>
+        </div>
+        <span class="meta">Plugin</span>
+      </div>
+      <p>Removes a player from the game when they die, for hardcore and scripted servers. Kept small on purpose: no config bloat, nothing it doesn&rsquo;t need.</p>
+    </article>
+  </section>
+
+  <section style="--i:2">
+    <h2 class="label">Servers</h2>
+    <p>I build full servers, and I mean the whole thing: setup, configuration, plugins, permissions, hosting. Sometimes I&rsquo;ll bring in a builder, but most of the time it&rsquo;s just me.</p>
+    <p>The ones I&rsquo;ve run sat somewhere around 5 to 50 active players. I haven&rsquo;t started a new one in a while, mostly because doing it properly costs money I&rsquo;d rather not burn. The one I actually want to make is a modern PvP server with duels and FFA, done right.</p>
+  </section>
+
+  <section style="--i:3">
+    <h2 class="label">Communities</h2>
+    <dl class="roles">
+      <div>
+        <dt>
+          Fractured SMP
+          <a class="icon" href="https://discord.gg/qjVAaKrWt8" target="_blank" rel="noopener" aria-label="Fractured SMP Discord invite">
+            <svg class="ico"><use href="#i-discord"/></svg>
+          </a>
+        </dt>
+        <dd>Manager, and I write the plugins. Around 200 members.</dd>
+      </div>
+      <div>
+        <dt>
+          auto-mcs
+          <a class="icon" href="https://discord.gg/T4Eq4PsyDw" target="_blank" rel="noopener" aria-label="auto-mcs Discord invite">
+            <svg class="ico"><use href="#i-discord"/></svg>
+          </a>
+        </dt>
+        <dd>Moderator. Around 900 members.</dd>
+      </div>
+    </dl>
+  </section>
+
+  <section style="--i:4">
+    <h2 class="label">Elsewhere</h2>
+    <ul class="links">
+      <li>
+        <a class="icon lg" href="https://modrinth.com/user/2in6" target="_blank" rel="noopener" aria-label="Modrinth">
+          <svg class="ico"><use href="#i-modrinth"/></svg>
+        </a>
+        <span class="meta">published plugins</span>
+      </li>
+      <li>
+        <a class="icon lg" href="https://discord.com/users/1436329475381002314" target="_blank" rel="noopener" aria-label="Discord">
+          <svg class="ico"><use href="#i-discord"/></svg>
+        </a>
+        <span class="meta">2in6.</span>
+      </li>
+      <li>
+        <a class="icon lg" href="https://www.youtube.com/@im2in6" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg class="ico"><use href="#i-youtube"/></svg>
+        </a>
+        <span class="meta">@im2in6</span>
+      </li>
+      <li>
+        <a class="icon lg" href="https://github.com/2in6" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg class="ico"><use href="#i-github"/></svg>
+        </a>
+        <span class="meta">not where I publish</span>
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+<script>
+(function () {
+  var audio = document.getElementById('bg-audio');
+  var btn = document.getElementById('audio-toggle');
+
+  var VOLUME = 0.5;
+  var FADE_IN = 900;
+  var FADE_OUT = 550;
+
+  var on = false;       // what the button shows, and what we're aiming for
+  var settled = false;  // audio has started once, so stop trying to auto-start
+  var frame = 0;
+  var fadeId = 0;
+
+  audio.volume = 0;
+
+  function render() {
+    btn.classList.toggle('is-playing', on);
+    btn.setAttribute('aria-pressed', String(on));
+    btn.setAttribute('aria-label', on ? 'Mute background music' : 'Play background music');
+  }
+
+  // Every fade gets an id. If a newer one starts, the older loop returns on its
+  // next frame instead of carrying on and fighting over the volume.
+  function fade(target, ms, done) {
+    var id = ++fadeId;
+    cancelAnimationFrame(frame);
+
+    var from = audio.volume;
+    var t0 = performance.now();
+
+    function step(now) {
+      if (id !== fadeId) return;
+
+      var k = Math.min((now - t0) / ms, 1);
+      // ease-out, so the last of the fade is the slowest part
+      var v = from + (target - from) * (1 - Math.pow(1 - k, 3));
+      audio.volume = Math.min(1, Math.max(0, v));
+
+      if (k < 1) frame = requestAnimationFrame(step);
+      else if (done) done();
+    }
+
+    step(t0);
+  }
+
+  function onGesture(e) {
+    dropGesture();
+    if (!btn.contains(e.target) && !settled) enable();
+  }
+
+  function armGesture() {
+    if (settled) return;
+    window.addEventListener('pointerdown', onGesture);
+    window.addEventListener('keydown', onGesture);
+  }
+
+  function dropGesture() {
+    window.removeEventListener('pointerdown', onGesture);
+    window.removeEventListener('keydown', onGesture);
+  }
+
+  function enable() {
+    if (on) return;
+    on = true;
+    render();
+
+    var p = audio.play();
+
+    if (p && p.then) {
+      p.then(function () {
+        settled = true;
+        dropGesture();
+        if (on) fade(VOLUME, FADE_IN);
+      }, function () {
+        // blocked by the browser, or cut short by a pause: put the button back
+        if (on) { on = false; render(); }
+      });
+    } else {
+      settled = true;
+      dropGesture();
+      fade(VOLUME, FADE_IN);
+    }
+  }
+
+  function disable() {
+    if (!on) return;
+    on = false;
+    render();
+
+    fade(0, FADE_OUT, function () {
+      if (!on) audio.pause();
+    });
+  }
+
+  btn.addEventListener('click', function () {
+    settled = true;   // they've made a choice, never auto-start over the top of it
+    dropGesture();
+    if (on) disable(); else enable();
+  });
+
+  // If something outside this script stops playback, keep the button honest.
+  audio.addEventListener('pause', function () {
+    if (on && audio.volume > 0) { on = false; render(); }
+  });
+
+  render();
+
+  // Browsers refuse audio until the visitor interacts, so listen for that first
+  // gesture up front, then try anyway in case this browser allows it.
+  armGesture();
+
+  var first = audio.play();
+  if (first && first.then) {
+    first.then(function () {
+      settled = true;
+      dropGesture();
+      on = true;
+      render();
+      fade(VOLUME, FADE_IN);
+    }, function () {
+      // stays armed, waiting for the first click or keypress
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
