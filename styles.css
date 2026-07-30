@@ -1,0 +1,363 @@
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("fonts/inter-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+                 U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+                 U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("fonts/inter-latin-ext.woff2") format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+                 U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB,
+                 U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root {
+  color-scheme: dark;
+
+  --bg:      #0b0c0b;
+  --text:    #9aa09a;
+  --bright:  #e9ece9;
+  --dim:     #757c75;
+  --rule:    #1f221f;
+  --thumb:   #2b302b;
+  --accent:  #b6f24a;
+  --accent-quiet: #3d5522;
+
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji";
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: var(--thumb) var(--bg);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.62;
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection { background: var(--accent); color: #0b0c0b; }
+
+/* ---- scrollbar ---- */
+
+::-webkit-scrollbar { width: 12px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+
+::-webkit-scrollbar-thumb {
+  background: var(--thumb);
+  border: 4px solid var(--bg);
+  border-radius: 99px;
+  transition: background 140ms ease;
+}
+
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ---- layout ---- */
+
+main {
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 6.5rem 1.5rem 8rem;
+}
+
+@media (max-width: 30rem) {
+  main { padding-top: 5.5rem; }
+}
+
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* ---- audio toggle ---- */
+
+#audio-toggle {
+  position: fixed;
+  top: 1.35rem;
+  left: 1.35rem;
+  z-index: 10;
+
+  display: grid;
+  place-items: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  padding: 0;
+
+  background: var(--bg);
+  border: 1px solid var(--rule);
+  border-radius: 99px;
+  color: var(--dim);
+  cursor: pointer;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+
+#audio-toggle:hover { color: var(--accent); border-color: var(--accent-quiet); }
+#audio-toggle.is-playing { color: var(--accent); }
+
+#audio-toggle svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: currentColor;
+}
+
+#audio-toggle .wave {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+
+  /* shrink back toward the speaker cone rather than toward their own centre */
+  transform-box: view-box;
+  transform-origin: 8px 12px;
+
+  opacity: 0;
+  transform: translateX(-3px) scale(0.72);
+  transition: opacity 340ms ease, transform 340ms cubic-bezier(0.22, 0.62, 0.24, 1);
+}
+
+/* muting: the outer wave leaves first and the inner one trails it */
+#audio-toggle .w1 { transition-delay: 110ms; }
+#audio-toggle .w2 { transition-delay: 0ms; }
+
+#audio-toggle.is-playing .wave {
+  opacity: 1;
+  transform: none;
+}
+
+/* unmuting: inner first, outer trails, so it reads as sound spreading out */
+#audio-toggle.is-playing .w1 {
+  transition-delay: 0ms;
+  animation: pulse 1.8s ease-in-out 340ms infinite;
+}
+
+#audio-toggle.is-playing .w2 {
+  transition-delay: 110ms;
+  animation: pulse 1.8s ease-in-out 640ms infinite;
+}
+
+/* the pulse rides on stroke-opacity so it never fights the fade above */
+@keyframes pulse {
+  0%, 100% { stroke-opacity: 0.45; }
+  50%      { stroke-opacity: 1; }
+}
+
+/* ---- headings ---- */
+
+h1 {
+  font-size: clamp(2.1rem, 7.5vw, 2.9rem);
+  font-weight: 620;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+  color: var(--bright);
+  margin: 0 0 1.75rem;
+}
+
+.wave-emoji {
+  display: inline-block;
+  font-size: 0.82em;
+  vertical-align: 0.02em;
+  margin-left: 0.12em;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin: 0 0 1.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+h3 {
+  margin: 0;
+  font-size: 1.0625rem;
+  font-weight: 590;
+  letter-spacing: -0.017em;
+  color: var(--bright);
+}
+
+/* ---- sections ---- */
+
+.intro { margin-bottom: 4.5rem; }
+.intro p { max-width: 32rem; }
+
+section { margin-bottom: 4.5rem; }
+section:last-child { margin-bottom: 0; }
+
+p { margin: 0 0 1.05rem; }
+p:last-child { margin-bottom: 0; }
+
+.meta {
+  font-size: 0.875rem;
+  color: var(--dim);
+  letter-spacing: -0.004em;
+}
+
+.note { color: var(--dim); font-size: 0.9375rem; }
+
+/* ---- projects ---- */
+
+.project { margin-bottom: 2.75rem; }
+.project:last-child { margin-bottom: 0; }
+
+.project .head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.project .head .meta { flex: none; }
+
+@media (max-width: 26rem) {
+  .project .head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+  }
+}
+
+/* ---- communities ---- */
+
+.roles { margin: 0; }
+.roles > div { margin-bottom: 1.15rem; }
+.roles > div:last-child { margin-bottom: 0; }
+
+dt {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--bright);
+  font-weight: 590;
+  letter-spacing: -0.017em;
+}
+
+dd {
+  margin: 0.1rem 0 0;
+  font-size: 0.9375rem;
+}
+
+/* ---- elsewhere ---- */
+
+.links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.links li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.links li:first-child { border-top: 1px solid var(--rule); }
+
+/* ---- icons ---- */
+
+.icon {
+  display: inline-flex;
+  color: var(--dim);
+  text-decoration: none;
+  transition: color 140ms ease;
+}
+
+.icon:hover { color: var(--accent); }
+
+.ico {
+  width: 1rem;
+  height: 1rem;
+  display: block;
+  fill: currentColor;
+}
+
+.lg .ico { width: 1.25rem; height: 1.25rem; }
+
+/* ---- text links ---- */
+
+a:not(.icon) {
+  color: var(--bright);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-quiet);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color 120ms ease, text-decoration-color 120ms ease;
+}
+
+a:not(.icon):hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+button.copy {
+  font: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.is-copied { color: var(--accent); }
+
+/* ---- load-in ---- */
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(9px); }
+  to   { opacity: 1; transform: none; }
+}
+
+main > * {
+  animation: rise 520ms cubic-bezier(0.22, 0.62, 0.24, 1) both;
+  animation-delay: calc(var(--i, 0) * 60ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main > * { animation: none; }
+  .icon, a { transition: none; }
+  #audio-toggle .wave { transition: opacity 340ms ease; transform: none; }
+  #audio-toggle.is-playing .w1,
+  #audio-toggle.is-playing .w2 { animation: none; }
+}
